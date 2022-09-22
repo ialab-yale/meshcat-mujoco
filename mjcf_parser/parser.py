@@ -137,9 +137,9 @@ def _parse(xml_root, escape_separators=False,
 
   assets = assets or {}
 
-  if xml_root.tag != 'mujoco':
-    raise ValueError('Root element of the XML should be <mujoco>: got <{}>'
-                     .format(xml_root.tag))
+  # if xml_root.tag != 'mujoco':
+  #   raise ValueError('Root element of the XML should be <mujoco>: got <{}>'
+  #                    .format(xml_root.tag))
 
   with debugging.freeze_current_stack_trace():
     # Recursively parse any included XML files.
