@@ -99,6 +99,8 @@ class MeshCatVisualizer(Visualizer):
         self._site_names = []
         self._add_body(self._xml_tree.worldbody, None)
 
+        self.is_alive = True
+
     def _add_body(self, body, parent_body):
         body_idx = len(self._body_names)
         if not parent_body:
@@ -146,9 +148,11 @@ class MeshCatVisualizer(Visualizer):
                         _parse_mesh(_body_viz, geom, self._mesh_dir, self._xml_tree)
                     # if (geom.type == "sphere"):
                     #     _parse_sphere(_body_viz, geom, self._xml_tree)
+        
         for site in sites:
+            self._site_names.append(site.name)
             if site.type == "sphere":
-                _parse_sphere(_body_viz, site, self._xml_tree)
+                _parse_sphere(self, site, self._xml_tree)
 
         # Recurse.
         for child_body in body.body:
@@ -163,3 +167,14 @@ class MeshCatVisualizer(Visualizer):
                 tf[:3,:3]   = body_xmat
                 tf[:3,3]    = body_xpos
                 self[body_name].set_transform(tf)
+        for site_name in self._site_names:
+            site_id = mujoco.mj_name2id(self._mj_model, mujoco.mjtObj.mjOBJ_SITE, site_name)
+            site_xpos = self._mj_data.site_xpos[site_id]
+            site_xmat = self._mj_data.site_xmat[site_id].reshape((3,3))
+            tf = np.eye(4)
+            tf[:3,:3]   = site_xmat
+            tf[:3,3]    = site_xpos
+            self[site_name].set_transform(tf)
+
+    def close(self):
+        pass
