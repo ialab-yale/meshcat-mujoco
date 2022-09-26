@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+meshcat_mujoco/__init__.py
+meshcat_mujoco/viewer.py
+meshcat_mujoco.egg-info/PKG-INFO
+meshcat_mujoco.egg-info/SOURCES.txt
+meshcat_mujoco.egg-info/dependency_links.txt
+meshcat_mujoco.egg-info/requires.txt
+meshcat_mujoco.egg-info/top_level.txt
