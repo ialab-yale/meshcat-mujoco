@@ -22,4 +22,13 @@ You must first have an instantiated mujoco MjModel and MjData class
 
 ```python
 import mujoco 
+from meshcat_mujoco import MeshCatVisualizer
+
+xml_path = './a1/xml/a1/a1.xml'
+model   = mujoco.MjModel.from_xml_path(xml_path)
+data    = mujoco.MjData(model)
+
+
+viewer = MeshCatVisualizer(xml_path, model, data)
+
 ```
