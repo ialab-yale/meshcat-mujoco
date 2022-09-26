@@ -31,4 +31,14 @@ data    = mujoco.MjData(model)
 
 viewer = MeshCatVisualizer(xml_path, model, data)
 
+i = 0 # <-- counter 
+for _ in range(10000): 
+
+    # use mujoco as normal with stepping function 
+    mujoco.mj_step(model, data)
+    # make sure you call the render function 
+    viewer.render()
+
+viewer.close()
+# close
 ```
