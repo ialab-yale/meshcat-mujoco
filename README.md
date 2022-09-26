@@ -9,7 +9,7 @@ pip install dm_control
 pip install meshcat
 ```
 
-once these packages are successfully installed, from this package directory install it via pip
+once these packages are successfully installed, clone this package directory and install it via pip
 ```bash
 pip install -e . 
 ```
