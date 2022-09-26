@@ -100,7 +100,8 @@ class MeshCatVisualizer(Visualizer):
         self._add_body(self._xml_tree.worldbody, None)
 
         self.is_alive = True
-
+        self.open()
+        
     def _add_body(self, body, parent_body):
         body_idx = len(self._body_names)
         if not parent_body:
