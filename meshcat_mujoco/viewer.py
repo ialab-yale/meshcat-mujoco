@@ -139,7 +139,7 @@ class MeshCatVisualizer(Visualizer):
             # else:
             #     _geom_type = geom.dclass.dclass
             if geom.dclass:
-                if geom.dclass.dclass == "collision":
+                if geom.dclass.dclass == "visual":
                     if (geom.type == constants.MESH):# or (_geom_type =='visual'):
                         _parse_mesh(_body_viz, geom, self._mesh_dir, self._xml_tree)
                     if (geom.type == "sphere"):
